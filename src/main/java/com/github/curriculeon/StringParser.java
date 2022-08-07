@@ -27,16 +27,15 @@ public class StringParser {
         }
 
         input = input.replace(" ","");
-        String[] splitInput = input.split("");
+        char[] splitInput = input.toCharArray();
 
 
         Integer[] result = new Integer[splitInput.length];
 
         for (int i = 0; i < splitInput.length; i++) {
-            String currentCharacter = splitInput[i];
-            if (currentCharacter != "") {
-                result[i] = Integer.parseInt(currentCharacter);
-            }
+           Character currentCharacter = splitInput[i];
+           result[i] = Integer.parseInt(currentCharacter.toString());
+
         }
         return result;
 
