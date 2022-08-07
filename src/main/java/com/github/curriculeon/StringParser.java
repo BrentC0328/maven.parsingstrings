@@ -1,5 +1,6 @@
 package com.github.curriculeon;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,25 +9,42 @@ import java.util.List;
 public class StringParser {
 
     public static Character[] parseCharacters(String input) {
+        if (input == null) {
+            return null;
+        }
         char[] splitInput = input.toCharArray();
         Character[] result = new Character[splitInput.length];
 
-        for (int i = 0; i < splitInput.length; i++){
-            result[i] = splitInput[i];}
+        for (int i = 0; i < splitInput.length; i++) {
+            result[i] = splitInput[i];
+        }
         return result;
     }
 
     public static Integer[] parseIntegers(String input) {
-        char[] splitInput = input.toCharArray();
+        if (input == null) {
+            return null;
+        }
+
+        input = input.replace(" ","");
+        String[] splitInput = input.split("");
+
+
         Integer[] result = new Integer[splitInput.length];
 
-        for (int i = 0; i < splitInput.length; i++){
-            result [i] = (int) splitInput[i]; }
+        for (int i = 0; i < splitInput.length; i++) {
+            String currentCharacter = splitInput[i];
+            if (currentCharacter != "") {
+                result[i] = Integer.parseInt(currentCharacter);
+            }
+        }
         return result;
+
     }
 
     public static List<String> toList(String[] input) {
-        return null;
+        ;
+        return Arrays.asList(input);
     }
 
     public static String[] parseStrings(String input) {
